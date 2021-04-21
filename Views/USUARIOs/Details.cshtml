@@ -1,0 +1,27 @@
+﻿@model BIBLIOTECA2.Models.USUARIO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2></h2>
+
+<div>
+    <h3>Detalles del Usuario</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contraseña)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Nombre }, new { @class = "btn btn-success" }) |
+    @*@Html.ActionLink("Back to List", "Index")*@
+    <a href="@Url.Action("Index")" class="btn btn-primary">Volver Atrás</a>
+</p>

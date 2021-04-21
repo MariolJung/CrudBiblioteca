@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Mi Biblioteca";
+}
+
+<div class="jumbotron" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVVXzJpO7sYmejxlqj6NZG6d1VlPP0l7YKhw&usqp=CAU)">
+    <center>
+        <h1 style="color:aliceblue"><i>BIBLIOTECA</i> </h1>
+        @*<p class="lead" style="color:darkred">BIBLIOTECA </p>*@
+        <p><a href="https://www.linkedin.com/in/mario-leonardo-jung-a11b80131/" class="btn btn-primary btn-lg">Perfil Linkedin  &raquo;</a></p>
+        <br />
+        <br />
+        <br />
+        <br />
+     
+      
+    </center>
+</div>
+
+<div class="row">
+    <center>
+        <div class="col-md-4">
+            @*<h2>@Html.ActionLink("Usuario", "Index", "USUARIOs")</h2>*@
+            <a href="@Url.Action("Index","USUARIOs")" class="btn btn-primary">Usuarios</a>
+            <p>
+                Crear Usuario y Perfil del Lector
+            </p>
+            <p><a class="btn btn-success" href="https://go.microsoft.com/fwlink/?LinkId=301865">Ver Mas &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            @*<h2>@Html.ActionLink("Libros", "Index", "LIBROes")</h2>*@
+            <a href="@Url.Action("Index","LIBROes")" class="btn btn-primary">Libros</a>
+            <p>Indice de Libros Cargados en La Bilioteca </p>
+            <p><a class="btn btn-success" href="https://www.casadellibro.com/libros-ebooks-gratis/184">Ver Mas &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <a href="@Url.Action("Index","BIBLIOTECAs")" class="btn btn-primary">Biblioteca</a>
+            @*<<a class="btn btn-primary" /a>*@
+            <p>Bibliotecas mas Los Usuarios </p>
+            <p><a class="btn btn-success" href="https://go.microsoft.com/fwlink/?LinkId=301867">Ver Mas &raquo;</a></p>
+        </div>
+    </center>
+</div>

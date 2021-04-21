@@ -1,0 +1,41 @@
+﻿@model BIBLIOTECA2.Models.BIBLIOTECA
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2></h2>
+
+<h3>Estás seguro de que quieres borrar esto?</h3>
+<div>
+    <h3>Borrar Biblioteca</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LIBRO.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LIBRO.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USUARIO.Contraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USUARIO.Contraseña)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Borrar" class="btn btn-danger" /> |
+    @*@Html.ActionLink("Back to List", "Index")*@
+    <a href="@Url.Action("Index")" class="btn btn-primary">Volver Atrás</a>
+</div>
+    }
+</div>

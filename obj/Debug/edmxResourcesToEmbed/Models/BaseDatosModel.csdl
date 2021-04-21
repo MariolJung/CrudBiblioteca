@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BIBLIOTECA2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BIBLIOTECA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Libro" Type="Int32" />
+    <NavigationProperty Name="LIBRO" Relationship="Self.FK__BIBLIOTEC__Id_Li__3B75D760" FromRole="BIBLIOTECA" ToRole="LIBRO" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.FK__BIBLIOTEC__Nombr__3A81B327" FromRole="BIBLIOTECA" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="LIBRO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Autor" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BIBLIOTECAs" Relationship="Self.FK__BIBLIOTEC__Id_Li__3B75D760" FromRole="LIBRO" ToRole="BIBLIOTECA" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BIBLIOTECAs" Relationship="Self.FK__BIBLIOTEC__Nombr__3A81B327" FromRole="USUARIO" ToRole="BIBLIOTECA" />
+  </EntityType>
+  <Association Name="FK__BIBLIOTEC__Id_Li__3B75D760">
+    <End Role="LIBRO" Type="Self.LIBRO" Multiplicity="0..1" />
+    <End Role="BIBLIOTECA" Type="Self.BIBLIOTECA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LIBRO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BIBLIOTECA">
+        <PropertyRef Name="Id_Libro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIBLIOTEC__Nombr__3A81B327">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="BIBLIOTECA" Type="Self.BIBLIOTECA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Nombre" />
+      </Principal>
+      <Dependent Role="BIBLIOTECA">
+        <PropertyRef Name="Nombre_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BIBLIOTECA2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BIBLIOTECAs" EntityType="Self.BIBLIOTECA" />
+    <EntitySet Name="LIBROes" EntityType="Self.LIBRO" />
+    <EntitySet Name="USUARIOs" EntityType="Self.USUARIO" />
+    <AssociationSet Name="FK__BIBLIOTEC__Id_Li__3B75D760" Association="Self.FK__BIBLIOTEC__Id_Li__3B75D760">
+      <End Role="LIBRO" EntitySet="LIBROes" />
+      <End Role="BIBLIOTECA" EntitySet="BIBLIOTECAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIBLIOTEC__Nombr__3A81B327" Association="Self.FK__BIBLIOTEC__Nombr__3A81B327">
+      <End Role="USUARIO" EntitySet="USUARIOs" />
+      <End Role="BIBLIOTECA" EntitySet="BIBLIOTECAs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

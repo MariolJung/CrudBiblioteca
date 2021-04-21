@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BIBLIOTECA2.Models.USUARIO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Indice de Usuarios</h3>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="@Url.Action("Create","USUARIOs")" class="btn btn-primary">Crear Usuario</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contraseña)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Nombre }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.Nombre }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.Nombre }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

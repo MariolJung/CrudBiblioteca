@@ -1,0 +1,33 @@
+﻿@model BIBLIOTECA2.Models.USUARIO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2></h2>
+
+<h3>AEstás seguro de que quieres borrar esto?</h3>
+<div>
+    <h3>Borrar Usuario</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contraseña)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Borrar" class="btn btn-danger" /> |
+    @*@Html.ActionLink("Back to List", "Index")*@
+    <a href="@Url.Action("Index")" class="btn btn-primary">Volver Atrás</a>
+</div>
+    }
+</div>
